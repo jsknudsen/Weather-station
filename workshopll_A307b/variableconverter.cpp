@@ -10,7 +10,7 @@ string VariableConverter::Qstring_string(QString input)
 
 float VariableConverter::String_float(string input)
 {
-
+    return 0;
 }
 
 VariableConverter::VariableConverter()

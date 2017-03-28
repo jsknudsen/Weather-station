@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     FileWriter Writer;
-    MyTimer mTimer;
+
     QApplication a(argc, argv);
 
     MainWindow w;

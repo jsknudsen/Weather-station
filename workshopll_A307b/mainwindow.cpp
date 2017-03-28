@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
         arduino->setParity(QSerialPort::NoParity);
         arduino->setStopBits(QSerialPort::OneStop);
         arduino->setFlowControl(QSerialPort::NoFlowControl);
-        connect(arduino,SIGNAL(readyRead()),this,SLOT(on_pushButton_clicked()));
+        connect(arduino,SIGNAL(readyRead()),this,SLOT(on_pushButton_2_pressed()));
 
     }else{
         // give error message if not available
@@ -42,6 +42,13 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::updateData()
+{
+    QString str = Reader->readHumidity();
+    ui->humidi_label->setText(QString("<span style=\" font-size:18pt; font-weight:600;\">%1</span>").arg(str));//arg("værdi") i værdi indtastes den ønskede værdi.
+    //Writer->writeHumidity(str);
 }
 
 
@@ -67,3 +74,4 @@ void MainWindow::on_pushButton_3_pressed()
     ui->temp_label->setText(QString("<span style=\" font-size:18pt; font-weight:600;\">%1</span>").arg(str));//arg("værdi") i værdi indtastes den ønskede værdi.
     //Writer->writeTemperature(str);
 }
+
